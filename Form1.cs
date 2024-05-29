@@ -14,7 +14,7 @@ namespace iGP_AutoStrategist
 {
     public partial class Form1 : Form
     {
-        private double raceLength; // Class field
+        private double raceLength;
         private List<Tire> tires = new List<Tire>();
         List<string> satirlarList = new List<string>();
 
@@ -57,57 +57,57 @@ namespace iGP_AutoStrategist
             double pitLaneTime;
             if (!double.TryParse(pitLaneTL.Text, out pitLaneTime))
             {
-                // Dönüşüm başarısız oldu, kullanıcıya geri bildirim sağlayın veya hatayı işleyin.
+                Console.WriteLine("Could not be converted!");
             }
 
             if (!double.TryParse(ssLapTB.Text, out ssLapT))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
             if (!double.TryParse(sLapTB.Text, out sLapT))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
             if (!double.TryParse(mLapTB.Text, out mLapT))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
             if (!double.TryParse(hLapTB.Text, out hLapT))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
             if (!double.TryParse(iLapTB.Text, out iLapT))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
             if (!double.TryParse(wLapTB.Text, out wLapT))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
 
             if (!int.TryParse(ssLapTB.Text, out ssWearR))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
             if (!int.TryParse(sLapTB.Text, out sWearR))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
             if (!int.TryParse(mLapTB.Text, out mWearR))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
             if (!int.TryParse(hLapTB.Text, out hWearR))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
             if (!int.TryParse(iLapTB.Text, out iWearR))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
             if (!int.TryParse(wLapTB.Text, out wWearR))
             {
-                Console.WriteLine("DÖnüşüm başarısız!");
+                Console.WriteLine("Could not be converted!");
             }
 
             double[] lapTimes = { ssLapT, sLapT, mLapT, hLapT, iLapT, wLapT };
@@ -117,7 +117,7 @@ namespace iGP_AutoStrategist
 
             int selectedTyreIndex = SelectTyre(lapTimes, wearRates);
 
-            // Other code...
+            // other codes
         }
 
         private (int, bool) CalculateLapCount(double[] lapTimes, double raceLength)
@@ -152,7 +152,7 @@ namespace iGP_AutoStrategist
         private void calculateButton_Click(object sender, EventArgs e)
         {
             CalculateStrategy();
-            // Other code...
+            // Other codes if needed
         }
 
         private struct BestTyres
@@ -226,10 +226,10 @@ namespace iGP_AutoStrategist
                 return;
             }
 
-            // Ekstra 4 litre yakıt ekleniyor
+            // adding L4 just incase
             const double extraFuel = 4.0;
 
-            // Hesaplama işlemleri burada yapılacak
+            // Calcualtings
             double totalFuelUse = fuelUsePerLap * totalLaps + extraFuel;
             string totalFuelUseStr = totalFuelUse.ToString();
             labelFuelNeeded.Text = totalFuelUseStr;
@@ -247,38 +247,34 @@ namespace iGP_AutoStrategist
                 LapTime = lapTime;
                 WearRate = wearRate;
             }
-
-            // İhtiyaç duyulan diğer özellikler ve metodlar buraya eklenebilir
+            //add other if needed
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Form yüklendiğinde yapılacak işlemler buraya
             LoadTracksFromFile("C:\\Users\\alper\\Desktop\\circuits.txt");
-            // Diğer gerekli işlemleri buraya ekleyebilirsiniz
         }
         private void LoadTracksFromFile(string filePath)
         {
-            // Dosyadan satırları oku ve Tracks listesine ekle
             using (StreamReader sr = new StreamReader(filePath))
             {
                 string satir;
                 while ((satir = sr.ReadLine()) != null)
                 {
                     satirlarList.Add(satir);
-                    Tracks.Items.Add(satir); // Listeye eklemek istediğiniz kontrol adını buraya yazın
+                    Tracks.Items.Add(satir); // add control name
                 }
             }
         }
 
         private void label16_Click(object sender, EventArgs e)
         {
-            // Similar to your original implementation...
+            // Similar to original implementation
         }
 
         private void totalLTB_TextChanged(object sender, EventArgs e)
         {
-            // Similar to your original implementation...
+            // Similar to original implementation
         }
 
         private void clearButton_Click_1(object sender, EventArgs e)
