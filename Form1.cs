@@ -191,7 +191,7 @@ namespace iGP_AutoStrategist
             labelFuelNeeded.Text = totalFuelUse.ToString();
         }
 
-        // Helper method to validate fuel and lap data
+        // Helper method
         private bool TryGetFuelData(out double fuelUsePerLap, out double totalLaps)
         {
             if (!TryParseDouble(fuelUsePLTB.Text, out fuelUsePerLap, "Fuel Use Per Lap") ||
@@ -223,7 +223,7 @@ namespace iGP_AutoStrategist
             CalculateStrategy();
         }
 
-        // Event handlers for other UI components
+        // Event handlers
         private void label16_Click(object sender, EventArgs e)
         {
             // Add implementation here if needed
@@ -231,16 +231,13 @@ namespace iGP_AutoStrategist
 
         private void totalLTB_TextChanged(object sender, EventArgs e)
         {
-            // Add implementation here if needed
         }
 
-        // Event handler for Form Load
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadTracksFromFile();
         }
 
-        // Tire class
         private class Tire
         {
             public string Type { get; set; }
